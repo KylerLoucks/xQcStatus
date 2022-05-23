@@ -1,0 +1,35 @@
+{
+   "manifest_version": 3,
+   "name": "xQcStatus",
+   "description": "Receive updates letting you know when xQc goes live or changes games.",
+
+   "options_ui": {
+      "page": "options.html",
+      "open_in_tab": false
+   },
+
+   "icons": {
+      "128": "/images/128.png",
+      "16": "/images/16.png",
+      "32": "/images/32.png",
+      "48": "/images/48.png"
+   },
+   "action": {
+      "default_icon": {
+         "128": "/images/128.png",
+         "16": "/images/16.png",
+         "32": "/images/32.png",
+         "48": "/images/48.png"
+      },
+      "default_popup": "popup.html"
+   },
+
+   "background": {
+      "service_worker": "background.js"
+   },
+
+   "permissions": [ "storage", "notifications", "alarms", "scripting"],
+   
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0"
+}

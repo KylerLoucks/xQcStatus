@@ -1,0 +1,173 @@
+body, section {	
+	width: 640px;
+	height: 400px;
+    color: white;
+    background-color: #101316;
+    overflow: auto;
+    margin:auto;
+}
+
+
+
+.panel {
+    background-color: #1b2126 !important;
+}
+
+
+.video-clip1 {
+    margin: auto;
+    position: relative;
+    top:0;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip1Views {
+    text-align: center;
+}
+
+.video-clip2 {
+    margin: auto;
+    position: relative;
+    top:10;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip2Views {
+    text-align: center;
+}
+.video-clip3 {
+    margin: auto;
+    position: relative;
+    top:20;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip3Views {
+    text-align: center;
+}
+.video-clip4 {
+    margin: auto;
+    position: relative;
+    top:30;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip4Views {
+    text-align: center;
+}
+.video-clip5 {
+    margin: auto;
+    position: relative;
+    top:40;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip5Views {
+    text-align: center;
+}
+.video-clip6 {
+    margin: auto;
+    position: relative;
+    top:50;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip6Views {
+    text-align: center;
+}
+.video-clip7 {
+    margin: auto;
+    position: relative;
+    top:60;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip7Views {
+    text-align: center;
+}
+.video-clip8 {
+    margin: auto;
+    position: relative;
+    top:70;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip8Views {
+    text-align: center;
+}
+.video-clip9 {
+    margin: auto;
+    position: relative;
+    top:80;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip9Views {
+    text-align: center;
+}
+.video-clip10 {
+    margin: auto;
+    position: relative;
+    top:90;
+    padding: 10x;
+    width: 70%;
+    border: 3px solid blue;
+}
+#clip10Views {
+    text-align: center;
+}
+
+#statusHeader {
+    text-align: center;
+    border: 3px solid green;
+}
+#topClips {
+    text-align: center;
+}
+
+
+
+
+
+
+
+.iconContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  
+    height: auto;
+}
+
+.socialLink {
+    /* a class for every button at the bottom except options button */
+    width: 5px;
+    height: 5px;
+    margin-top: 3px;
+  
+    fill: var(--text);
+}
+
+.socialLink:hover {
+    cursor: pointer;
+    transition: 0.5s;
+  
+    fill: var(--textReverse);
+}
+
+#webLink {
+    /* svg for globe/web svg */
+    width: 15px;
+    height: 15px;
+    padding-bottom: 1px;
+}
