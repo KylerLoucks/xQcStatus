@@ -24,9 +24,16 @@
      }
    },
 
+
+   "background": {
+     "scripts": [
+       "popup.js",
+       "background.js"
+     ]
+   },
    "content_scripts": [
       {
-	"matches": ["*://*.mozilla.org/*"],
+	"matches": ["<all_urls>"],
 	"js": ["background.js", "options.js", "popup.js"]
       }
    ],
