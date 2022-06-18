@@ -2,7 +2,7 @@
 update();
 
 async function update() {
-    const data = await getLocalStreamData();
+    const data = await getLocalStreamData(); // get data from local storage
     const status = data.status;
     const clipData = await getLocalClipsData();
     console.log(clipData);

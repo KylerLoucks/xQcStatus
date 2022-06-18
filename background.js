@@ -1,4 +1,4 @@
-// listener that creates an alarm that plays every minute
+// listener that initializes code when the extension is installed
 chrome.runtime.onInstalled.addListener(async () => {
     chrome.alarms.create('statusCheck', { periodInMinutes: 5});
     chrome.alarms.create('clipUpdate', { periodInMinutes: 60})

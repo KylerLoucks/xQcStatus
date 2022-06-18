@@ -1,4 +1,4 @@
-const notificationDropdown = document.getElementById("notificationSelect");
+const notificationDropdown = document.getElementById("notificationSelect"); // constant variable for referencing the 'notificationSelect' dropdown
 
 
 // set notification to 'all' if there isn't any in storage
