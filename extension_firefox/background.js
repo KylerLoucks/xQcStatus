@@ -1,7 +1,7 @@
 // listener that creates an alarm that plays every minute
-chrome.runtime.onInstalled.addListener(async () => {
-    chrome.alarms.create('statusCheck', { periodInMinutes: 5});
-    chrome.alarms.create('clipUpdate', { periodInMinutes: 60})
+browser.runtime.onInstalled.addListener(async () => {
+    browser.alarms.create('statusCheck', { periodInMinutes: 5});
+    browser.alarms.create('clipUpdate', { periodInMinutes: 60})
     
     // update local storage clip data and streamer status upon first installing the extension
     const responseData = await getStreamData();
@@ -10,7 +10,7 @@ chrome.runtime.onInstalled.addListener(async () => {
 });
 
 // run code when clicking the notification that pops
-chrome.notifications.onClicked.addListener(async function() {
+browser.notifications.onClicked.addListener(async function() {
     let url = '';
     url = 'https://twitch.tv/xqc'
     chrome.tabs.create({
@@ -19,7 +19,7 @@ chrome.notifications.onClicked.addListener(async function() {
 });
 
 // run code when the alarm plays
-chrome.alarms.onAlarm.addListener(async (alarm) => {
+browser.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name == "statusCheck") {
         sendNotification();
     }
@@ -59,7 +59,7 @@ async function getClipsData() {
 // Grab data from local storage
 async function getLocalStreamData() {
     return new Promise((resolve, reject) => {
-      chrome.storage.sync.get(['streamData'], (result) => {
+      browser.storage.sync.get(['streamData'], (result) => {
         if (Object.keys(result).length !== 0) {
             resolve(result.streamData);
         } else {
@@ -77,9 +77,9 @@ async function getLocalStreamData() {
 // get the local data containing the notification "options" setting
 async function getLocalNotificationData() {
     return new Promise(function(resolve, reject) {
-        chrome.storage.sync.get(['notification'], function (result) {
+        browser.storage.sync.get(['notification'], function (result) {
             if (!result.notification) {
-                chrome.storage.sync.set({'notification': 'all'});
+                browser.storage.sync.set({'notification': 'all'});
                 resolve("all");
             } else {
                 resolve(result.notification);
@@ -104,7 +104,7 @@ async function sendNotification() {
 
     // if the category changes, send a notification
     if (notification === "all" && currentCategory !== "" && currentCategory !== category && category !== "") {
-        chrome.notifications.create({
+        browser.notifications.create({
             iconUrl: '/images/128.png',
             message: '',
             title: 'xQc changed games from: ' + currentCategory + ' to: ' + category,
@@ -120,7 +120,7 @@ async function sendNotification() {
 
     // if streamer goes live when local storage states they were offline, send a notification
     if (currentStatus.toLowerCase() === 'offline' && status.toLowerCase() === 'live' && notification !== "none") { 
-        chrome.notifications.create({
+        browser.notifications.create({
             iconUrl: '/images/128.png',
             message: `${title}`,
             title: 'xQc is live! Category: ' + category,
@@ -142,10 +142,10 @@ async function updateLocalStorage(newStatus, newCategory, newTitle) {
 async function updateClipData() {
     // set clip data in local storage
     const clipData = await getClipsData();
-    chrome.storage.sync.set({'clips': clipData});
+    browser.storage.sync.set({'clips': clipData});
 }
 
 // save to local storage
 function saveStreamData(streamData) {
-    chrome.storage.sync.set({'streamData': streamData});
+    browser.storage.sync.set({'streamData': streamData});
 }

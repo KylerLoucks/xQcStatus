@@ -58,7 +58,7 @@ async function update() {
 // Grab from local storage the top 10 clips data
 async function getLocalClipsData() {
     return new Promise(function(resolve, reject) {
-      chrome.storage.sync.get(['clips'], function(result) {
+      browser.storage.sync.get(['clips'], function(result) {
         console.log("getting local clips data....")
         if (!result.clips) {
             console.log("no clips found " + result.clips);
@@ -74,7 +74,7 @@ async function getLocalClipsData() {
 // Grab from local storage the streamer status
 async function getLocalStreamData() {
     return new Promise(function(resolve, reject) {
-      chrome.storage.sync.get(['streamData'], function(result) {
+      browser.storage.sync.get(['streamData'], function(result) {
         if (Object.keys(result).length !== 0) {
             resolve(result.streamData);
         } else {
