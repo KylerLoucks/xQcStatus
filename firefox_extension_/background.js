@@ -2,11 +2,20 @@
 browser.runtime.onInstalled.addListener(async () => {
     browser.alarms.create('statusCheck', { periodInMinutes: 5});
     browser.alarms.create('clipUpdate', { periodInMinutes: 60})
-    
+
     // update local storage clip data and streamer status upon first installing the extension
     const responseData = await getStreamData();
     await updateLocalStorage(responseData.status, responseData.category, responseData.title)
     await updateClipData();
+
+    if (responseData.status === 'live') {
+        chrome.notifications.create({
+            iconUrl: '/images/128.png',
+            message: `${responseData.title}`,
+            title: 'xQc is live! Category: ' + responseData.category,
+            type: 'basic'
+        });
+    }
 });
 
 // run code when clicking the notification that pops
